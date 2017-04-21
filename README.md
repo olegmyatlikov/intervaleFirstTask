@@ -4,7 +4,7 @@
 
 1. Cоздайте класс User 
    * со следующими свойствами
-     -(atomic, retain) NSNumber *userId; // уникальный идентификатор пользователя, переопределить get/set методы
+     - (atomic, retain) NSNumber *userId; // уникальный идентификатор пользователя, переопределить get/set методы
      - (nonatomic, retain) NSMutableString *firstName; // переопределить get/set методы
      - (nonatomic, copy) NSMutableString *lastName; // переопределить get/set методы
      - (nonatomic, retain) NSDate *birthDate; 
