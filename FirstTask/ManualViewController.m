@@ -50,7 +50,7 @@
     UIButton *buttomSayHello = [[UIButton alloc] initWithFrame:CGRectMake(40, 260, 240, 30)];
     [buttomSayHello setTintColor:[UIColor whiteColor]];
     [buttomSayHello.titleLabel setFont:[UIFont systemFontOfSize:15]];
-    [buttomSayHello setBackgroundColor: [UIColor colorWithRed:0 green:122 blue:255 alpha:1]];
+    [buttomSayHello setBackgroundColor: [UIColor colorWithRed:0.0f green:0.48f blue:1.0f alpha:1.0f]];
     [buttomSayHello setTitle:@"Say hello" forState:UIControlStateNormal];
     [self.view addSubview:buttomSayHello];
     
