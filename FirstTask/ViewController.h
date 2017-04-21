@@ -10,6 +10,9 @@
 
 @interface ViewController : UIViewController
 
+@property (retain, nonatomic) IBOutlet UILabel *labelHello;
+@property (retain, nonatomic) IBOutlet UITextField *firstNameTextField;
+@property (retain, nonatomic) IBOutlet UITextField *lastNameTextField;
 
 @end
 

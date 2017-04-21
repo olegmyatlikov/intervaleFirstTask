@@ -13,6 +13,8 @@
 		84C9EB6E1EA9DA8D005452B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C9EB6C1EA9DA8D005452B0 /* Main.storyboard */; };
 		84C9EB701EA9DA8D005452B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C9EB6F1EA9DA8D005452B0 /* Assets.xcassets */; };
 		84C9EB731EA9DA8D005452B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C9EB711EA9DA8D005452B0 /* LaunchScreen.storyboard */; };
+		84C9EB7D1EA9DBAE005452B0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C9EB7C1EA9DBAE005452B0 /* User.m */; };
+		84C9EB831EA9E456005452B0 /* ManualViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C9EB821EA9E456005452B0 /* ManualViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		84C9EB6F1EA9DA8D005452B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84C9EB721EA9DA8D005452B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84C9EB741EA9DA8D005452B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84C9EB7B1EA9DBAE005452B0 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		84C9EB7C1EA9DBAE005452B0 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		84C9EB811EA9E456005452B0 /* ManualViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualViewController.h; sourceTree = "<group>"; };
+		84C9EB821EA9E456005452B0 /* ManualViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManualViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +66,14 @@
 			children = (
 				84C9EB661EA9DA8D005452B0 /* AppDelegate.h */,
 				84C9EB671EA9DA8D005452B0 /* AppDelegate.m */,
+				84C9EB811EA9E456005452B0 /* ManualViewController.h */,
+				84C9EB821EA9E456005452B0 /* ManualViewController.m */,
 				84C9EB691EA9DA8D005452B0 /* ViewController.h */,
 				84C9EB6A1EA9DA8D005452B0 /* ViewController.m */,
 				84C9EB6C1EA9DA8D005452B0 /* Main.storyboard */,
-				84C9EB6F1EA9DA8D005452B0 /* Assets.xcassets */,
-				84C9EB711EA9DA8D005452B0 /* LaunchScreen.storyboard */,
-				84C9EB741EA9DA8D005452B0 /* Info.plist */,
+				84C9EB7B1EA9DBAE005452B0 /* User.h */,
+				84C9EB7C1EA9DBAE005452B0 /* User.m */,
+				84C9EB7A1EA9DB58005452B0 /* other files */,
 				84C9EB631EA9DA8D005452B0 /* Supporting Files */,
 			);
 			path = FirstTask;
@@ -77,6 +85,16 @@
 				84C9EB641EA9DA8D005452B0 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84C9EB7A1EA9DB58005452B0 /* other files */ = {
+			isa = PBXGroup;
+			children = (
+				84C9EB6F1EA9DA8D005452B0 /* Assets.xcassets */,
+				84C9EB711EA9DA8D005452B0 /* LaunchScreen.storyboard */,
+				84C9EB741EA9DA8D005452B0 /* Info.plist */,
+			);
+			name = "other files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,8 +167,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84C9EB7D1EA9DBAE005452B0 /* User.m in Sources */,
 				84C9EB6B1EA9DA8D005452B0 /* ViewController.m in Sources */,
 				84C9EB681EA9DA8D005452B0 /* AppDelegate.m in Sources */,
+				84C9EB831EA9E456005452B0 /* ManualViewController.m in Sources */,
 				84C9EB651EA9DA8D005452B0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,6 +283,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				INFOPLIST_FILE = FirstTask/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myatlikov.oleg.FirstTask;
@@ -274,6 +295,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				INFOPLIST_FILE = FirstTask/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myatlikov.oleg.FirstTask;
