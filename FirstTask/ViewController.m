@@ -17,7 +17,6 @@
 }
 
 
-
 - (IBAction)buttom:(UIButton *)sender {
     [_labelHello setText:[NSString stringWithFormat:@"Hello, %@ %@!", [_firstNameTextField text], [_lastNameTextField text]]];
 }
