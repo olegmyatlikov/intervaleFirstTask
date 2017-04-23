@@ -87,3 +87,24 @@
    * что происходит с объектами добавляемыми в NSDictionary, а точнее с key и value - assign, retain или copy
   
    * что происходит при редактирование firstName и lastName
+   
+   
+10. Выполнить таск по UI (создайте компоненты используя .storyboard и вручную)
+
+  * Создать Label - first name and last name
+    - set text
+    - set background color
+    - set textColor
+    - set font
+    
+  * Создать TextField - firstName and lastName
+    - text borderStyle
+    - background color
+    - text
+  
+  * Создать Button - Hello, приветствие со значениями из firstName and lastName 
+    - set title
+    - set backgroundcolor
+    - addTarget
+    - titleEdgeInsets
+    - button.contentVerticalAlignment
