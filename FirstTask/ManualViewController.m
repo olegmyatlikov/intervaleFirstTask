@@ -14,7 +14,7 @@
     [super viewDidLoad];
     
     float midleOfView = (self.view.bounds.size.width - 40) / 2 ;
-    NSLog(@"%f", midleOfView);
+    float buttonWidth = self.view.bounds.size.width - 80;
     
     // first name LABEL
     UILabel *firstNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 150, midleOfView, 30)];
@@ -25,13 +25,13 @@
     [self.view addSubview:firstNameLabel];
     
     // fist name TEXTFIELD
-    UITextField *firstNameTextField = [[UITextField alloc] initWithFrame:CGRectMake(midleOfView, 150, midleOfView, 30)];
-    [firstNameTextField setFont:[UIFont systemFontOfSize:15]];
-    [firstNameTextField borderStyle];
-    [firstNameTextField setTextAlignment: NSTextAlignmentCenter];
-    [firstNameTextField setBorderStyle:UITextBorderStyleRoundedRect];
-    [self.view addSubview:firstNameTextField];
-    [firstNameTextField addTarget:self action:@selector(endEdingFirstName:) forControlEvents:UIControlEventEditingDidEnd];
+    _firstNameTextField = [[UITextField alloc] initWithFrame:CGRectMake(midleOfView, 150, midleOfView, 30)];
+    [_firstNameTextField setFont:[UIFont systemFontOfSize:15]];
+    [_firstNameTextField borderStyle];
+    [_firstNameTextField setTextAlignment: NSTextAlignmentCenter];
+    [_firstNameTextField setBorderStyle:UITextBorderStyleRoundedRect];
+    [self.view addSubview:_firstNameTextField];
+    [_firstNameTextField release];
     
      // last name LABEL
     UILabel *lastNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 200, midleOfView, 30)];
@@ -42,48 +42,39 @@
     [self.view addSubview:lastNameLabel];
     
     // last name TEXTFIELD
-    UITextField *lastNameTextField = [[UITextField alloc] initWithFrame:CGRectMake(midleOfView, 200, midleOfView, 30)];
-    [lastNameTextField setFont:[UIFont systemFontOfSize:15]];
-    [lastNameTextField borderStyle];
-    [lastNameTextField setTextAlignment: NSTextAlignmentCenter];
-    [lastNameTextField setBorderStyle:UITextBorderStyleRoundedRect];
-    [self.view addSubview:lastNameTextField];
-    [lastNameTextField addTarget:self action:@selector(endEdingLastName:) forControlEvents:UIControlEventEditingDidEnd];
+    _lastNameTextField = [[UITextField alloc] initWithFrame:CGRectMake(midleOfView, 200, midleOfView, 30)];
+    [_lastNameTextField setFont:[UIFont systemFontOfSize:15]];
+    [_lastNameTextField borderStyle];
+    [_lastNameTextField setTextAlignment: NSTextAlignmentCenter];
+    [_lastNameTextField setBorderStyle:UITextBorderStyleRoundedRect];
+    [self.view addSubview:_lastNameTextField];
+    [_lastNameTextField release];
 
     // say hello BUTTOM
-    UIButton *buttomSayHello = [[UIButton alloc] initWithFrame:CGRectMake(40, 260, 240, 30)];
+    UIButton *buttomSayHello = [[UIButton alloc] initWithFrame:CGRectMake(40, 260, buttonWidth, 30)];
     [buttomSayHello setTintColor:[UIColor whiteColor]];
     [buttomSayHello.titleLabel setFont:[UIFont systemFontOfSize:15]];
     [buttomSayHello setBackgroundColor: [UIColor colorWithRed:0.0f green:0.48f blue:1.0f alpha:1.0f]];
     [buttomSayHello setTitle:@"Say hello" forState:UIControlStateNormal];
-    [self.view addSubview:buttomSayHello];
     [buttomSayHello addTarget:self action:@selector(sayHello) forControlEvents:UIControlEventTouchUpInside];
+    [buttomSayHello setTitleEdgeInsets: UIEdgeInsetsMake(0, 0, 0, 0)];
+    [buttomSayHello setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
+    [self.view addSubview:buttomSayHello];
     
     // output label "say hello"
-    UILabel *sayHelloOuputLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 320, self.view.bounds.size.width, 30)];
-    [sayHelloOuputLabel setTextColor:[UIColor blackColor]];
-    [sayHelloOuputLabel setFont:[UIFont systemFontOfSize:20]];
-    [sayHelloOuputLabel setTextAlignment:NSTextAlignmentCenter];
-    [sayHelloOuputLabel setText:@"Hello"];
-    [self.view addSubview:sayHelloOuputLabel];
+    _sayHelloLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 320, self.view.bounds.size.width, 30)];
+    [_sayHelloLabel setTextColor:[UIColor blackColor]];
+    [_sayHelloLabel setFont:[UIFont systemFontOfSize:20]];
+    [_sayHelloLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.view addSubview:_sayHelloLabel];
+    [_sayHelloLabel release];
     
 }
 
--(void)endEdingFirstName: (UITextField *)textField {
-    _firstName = [textField text];
-}
-
--(void)endEdingLastName: (UITextField *)textField {
-    _lastName = [textField text];
-}
 
 -(void) sayHello {
     [self.view endEditing:YES];
-    NSLog(@"Hello %@ %@!", _firstName, _lastName);
-    
-    _sayHelloLabel = [NSString stringWithFormat:@"Hello %@ %@!", _firstName, _lastName];
-    
-    
+    _sayHelloLabel.text = [NSString stringWithFormat:@"Hello, %@ %@!", [_firstNameTextField text], [_lastNameTextField text]];
 }
 
 

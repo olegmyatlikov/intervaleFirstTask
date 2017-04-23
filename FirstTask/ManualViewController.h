@@ -10,10 +10,8 @@
 
 @interface ManualViewController : UIViewController
 
-@property (nonatomic, unsafe_unretained) NSString *firstName;
-@property (nonatomic, unsafe_unretained) NSString *lastName;
-@property (nonatomic, unsafe_unretained) NSString *sayHelloLabel;
-
--(void) sayHello;
+@property (nonatomic, retain) UITextField *firstNameTextField;
+@property (nonatomic, retain) UITextField *lastNameTextField;
+@property (nonatomic, retain) UILabel *sayHelloLabel;
 
 @end

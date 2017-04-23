@@ -10,6 +10,15 @@
 
 @implementation User
 @synthesize userId = _userId;
+@synthesize firstName = _firstName;
+@synthesize lastName = _lastName;
+@synthesize birthDate = _birthDate;
+@synthesize folowers = _folowers;
+@synthesize folowing = _folowing;
+@synthesize address = _address;
+@synthesize city = _city;
+@synthesize country = _country;
+@synthesize contactUser = _contactUser;
 
 -(id) initUserWithID: (NSNumber*) userId
            firstName: (NSMutableString*) name
@@ -49,7 +58,20 @@
 
 -(void) dealloc {
     NSLog(@"dealloc %@", self);
+
+    [_userId release];
+    [_firstName release];
+    [_lastName release];
+    [_birthDate release];
+    [_folowers release];
+    [_folowing release];
+    [_address release];
+    [_city release];
+    [_country release];
+    [_country release];
+    
     [super dealloc];
 }
+
 
 @end
