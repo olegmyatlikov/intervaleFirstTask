@@ -17,7 +17,7 @@
     float buttonWidth = self.view.bounds.size.width - 80;
     
     // first name LABEL
-    UILabel *firstNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 150, midleOfView, 30)];
+    UILabel *firstNameLabel = [[[UILabel alloc] initWithFrame:CGRectMake(40, 150, midleOfView, 30)] autorelease];
     [firstNameLabel setFont:[UIFont systemFontOfSize:15]];
     [firstNameLabel setTextColor: [UIColor blackColor]];
     [firstNameLabel setTextAlignment:NSTextAlignmentLeft];
@@ -25,16 +25,15 @@
     [self.view addSubview:firstNameLabel];
     
     // fist name TEXTFIELD
-    _firstNameTextField = [[UITextField alloc] initWithFrame:CGRectMake(midleOfView, 150, midleOfView, 30)];
+    _firstNameTextField = [[[UITextField alloc] initWithFrame:CGRectMake(midleOfView, 150, midleOfView, 30)] autorelease];
     [_firstNameTextField setFont:[UIFont systemFontOfSize:15]];
     [_firstNameTextField borderStyle];
     [_firstNameTextField setTextAlignment: NSTextAlignmentCenter];
     [_firstNameTextField setBorderStyle:UITextBorderStyleRoundedRect];
     [self.view addSubview:_firstNameTextField];
-    [_firstNameTextField release];
     
      // last name LABEL
-    UILabel *lastNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(40, 200, midleOfView, 30)];
+    UILabel *lastNameLabel = [[[UILabel alloc] initWithFrame:CGRectMake(40, 200, midleOfView, 30)] autorelease];
     [lastNameLabel setFont:[UIFont systemFontOfSize:15]];
     [lastNameLabel setTextColor: [UIColor blackColor]];
     [lastNameLabel setTextAlignment:NSTextAlignmentLeft];
@@ -42,13 +41,12 @@
     [self.view addSubview:lastNameLabel];
     
     // last name TEXTFIELD
-    _lastNameTextField = [[UITextField alloc] initWithFrame:CGRectMake(midleOfView, 200, midleOfView, 30)];
+    _lastNameTextField = [[[UITextField alloc] initWithFrame:CGRectMake(midleOfView, 200, midleOfView, 30)] autorelease];
     [_lastNameTextField setFont:[UIFont systemFontOfSize:15]];
     [_lastNameTextField borderStyle];
     [_lastNameTextField setTextAlignment: NSTextAlignmentCenter];
     [_lastNameTextField setBorderStyle:UITextBorderStyleRoundedRect];
     [self.view addSubview:_lastNameTextField];
-    [_lastNameTextField release];
 
     // say hello BUTTOM
     UIButton *buttomSayHello = [[UIButton alloc] initWithFrame:CGRectMake(40, 260, buttonWidth, 30)];
@@ -71,12 +69,18 @@
     
 }
 
-
 -(void) sayHello {
     [self.view endEditing:YES];
     _sayHelloLabel.text = [NSString stringWithFormat:@"Hello, %@ %@!", [_firstNameTextField text], [_lastNameTextField text]];
 }
 
+-(void) dealloc {
+    [_firstNameTextField release];
+    [_lastNameTextField release];
+    [_sayHelloLabel release];
+    
+    [super dealloc];
+}
 
 
 @end

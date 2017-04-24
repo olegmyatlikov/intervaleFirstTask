@@ -14,4 +14,9 @@
     return ([_blocked integerValue] == 1);
 }
 
+-(void) dealloc {
+    [_blocked release];
+    [super dealloc];
+}
+
 @end

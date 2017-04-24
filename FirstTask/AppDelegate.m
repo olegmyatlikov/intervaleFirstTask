@@ -21,9 +21,14 @@
     
     User* user1 = [[User alloc] initUserWithName:@"Oleg" lastName:@"Myatlikov"];
     user1.userId = [NSNumber numberWithInt:1234];
-    NSLog(@"User full name is %@ %@", user1.firstName, user1.lastName);
-    NSLog(@"%@", [user1 userId]);
+    user1.userId = [NSNumber numberWithInt:1255];
+    user1.userId = [NSNumber numberWithInt:1258];
+    user1.userId = [NSNumber numberWithInt:1258];
+    user1.contactUser = @YES;
+    user1.contactUser = @NO;
     
+    
+    [user1 release];
     return YES;
 }
 

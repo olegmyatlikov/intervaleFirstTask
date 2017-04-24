@@ -10,7 +10,7 @@
 
 @interface User() {
     NSMutableArray *_followers;
-    NSMutableArray *_following;  
+    NSMutableArray *_following;
 }
 @end
 
@@ -59,44 +59,43 @@
 
 -(NSNumber *) userId {
     NSLog(@"getter userId was called");
-    return [[_userId retain] autorelease];
+    @synchronized (self) {
+        return [[_userId retain] autorelease];
+    }
 }
 
 -(void) setUserId:(NSNumber *) userId {
     NSLog(@"setter userId was called");
-    [_userId release];
-    [userId retain];
-    _userId = userId;       
+    _userId = userId;
 }
 
 
 // get&set firstName (nonatomic, retain)
 
 -(NSString *) firstName {
-   NSLog(@"getter firstName was called");
-   return [[_firstName retain] autorelease];                   
-}           
+    return _firstName;
+}
 
 -(void) setFirstName:(NSString *) firstName {
-    NSLog(@"setter firstName was called");
-    [_firstName release];
-    [firstName retain];
-    _firstName = firstName;       
+    if (_firstName != firstName) {
+        [_firstName release];
+        _firstName = [firstName copy];
+    }
 }
 
 
 // get&set lastName (nonatomic, copy)
 
 -(NSString *) lastName {
-   NSLog(@"getter lastName was called");
-   return [[_lastName copy] autorelease];                   
-}           
+    NSLog(@"getter lastName was called");
+    return _lastName;
+}
 
 -(void) setLastName:(NSString *) lastName {
     NSLog(@"setter lastName was called");
     if (_lastName != lastName) {
-       [_lastName release];
-       _lastName = [lastName copy];        
+        [_lastName release];
+        _lastName = [lastName copy];
     }
 }
 
@@ -104,14 +103,15 @@
 // get&set folowers (atomic, copy)
 
 -(NSArray *) followers {
-   NSLog(@"getter folowers was called");
-   return [[_followers copy] autorelease];                   
-}           
+    NSLog(@"getter folowers was called");
+        return _followers;
+}
+
 -(void) folowers:(NSArray *) followers {
-   if (_followers != followers) {
-   [_followers release];
-   _followers = [followers copy];
-   }
+    if (_followers != followers) {
+        [_followers release];
+        _followers = [followers copy];
+    }
 }
 
 
@@ -119,7 +119,7 @@
 
 -(BOOL) contactUser {
     NSLog(@"getter contactUser was called");
-    return [[_contactUser retain] autorelease]; //??
+    return _contactUser; //??
 }
 
 -(void) setContactUser:(BOOL) contactUser {
@@ -142,7 +142,7 @@
 }
 
 -(void) addFolowing: (id) user {
-    [_following addObject: user];           
+    [_following addObject: user];
 }
 
 -(void) removeFolowing: (id) user {
@@ -150,21 +150,30 @@
 }
 
 -(BOOL) isFollowerPerson: (id) user {
-    return [_followers containsObject: user]; 
+    return [_followers containsObject: user];
 }
 
 -(BOOL) isFollowingPerson: (id) user {
-    return [_following containsObject: user]; 
+    return [_following containsObject: user];
 }
 
 /*-(void) description: (User *) user {
-    NSLog[@" User ID: %d \n Name: %@ \n Lastname: %@ \n Birthday: %@ \n Folowers: %@ \n Folowing: %@ \n City: %@ \n Country: %@", user.userId, user.firstName, user.lastName, user.folowers, user.folowing, user.city, user.country];
-}*/
+ NSLog[@" User ID: %d \n Name: %@ \n Lastname: %@ \n Birthday: %@ \n Folowers: %@ \n Folowing: %@ \n City: %@ \n Country: %@", user.userId, user.firstName, user.lastName, user.folowers, user.folowing, user.city, user.country];
+ }*/
 
 -(void) dealloc {
     NSLog(@"dealloc %@", self);
-
+    [_userId release];
+    [_firstName release];
+    [_lastName release];
     [_birthDate release];
+    [_followers release];
+    [_following release];
+    [_address release];
+    [_city release];
+    [_country release];
+    //[_contactUser release];
+    
     [super dealloc];
 }
 
