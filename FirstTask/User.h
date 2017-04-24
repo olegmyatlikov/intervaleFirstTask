@@ -31,6 +31,21 @@
 -(id) initUserOnlyWithID: (NSNumber*) userId;
 -(id) initUserWithName: (NSMutableString*) name lastName: (NSMutableString*) lastName;
 
--(NSNumber*) userId: (NSNumber*) userId;
+// public methods
+
+-(void) printFullName;
+
+-(void) addFolower: (id) user;
+
+-(void) removeFolower: (id) user;
+
+-(void) addFolowing: (id) user;
+
+-(void) removeFolowing: (id) user;
+
+-(BOOL) isFollowerPerson: (id) user;
+
+-(BOOL) isFollowingPerson: (id) user;
+
 
 @end
