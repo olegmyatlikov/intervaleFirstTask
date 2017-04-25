@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PersonBirthday.h"
 
-@interface User : NSObject
+@interface User : NSObject <PersonBirthday>
 
 @property (atomic, retain) NSNumber* userId;
 @property (nonatomic, retain) NSMutableString* firstName;
@@ -46,6 +47,8 @@
 -(BOOL) isFollowerPerson: (id) user;
 
 -(BOOL) isFollowingPerson: (id) user;
+
+//-(BOOL) isTodayBirthDate;
 
 
 @end

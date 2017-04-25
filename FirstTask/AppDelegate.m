@@ -20,15 +20,13 @@
     // Override point for customization after application launch.
     
     User* user1 = [[User alloc] initUserWithName:@"Oleg" lastName:@"Myatlikov"];
-    user1.userId = [NSNumber numberWithInt:1234];
-    user1.userId = [NSNumber numberWithInt:1255];
-    user1.userId = [NSNumber numberWithInt:1258];
-    user1.userId = [NSNumber numberWithInt:1258];
-    user1.contactUser = @YES;
-    user1.contactUser = @NO;
+
+    [user1 setBirthDateFromString: @"25/04/2017"];
+    NSLog(@"%@", user1.birthDate);
+    [user1 happyBirhday];
     
     
-    [user1 release];
+    //[user1 release];
     return YES;
 }
 

@@ -58,15 +58,17 @@
 // get&set userId (atomic, retain)
 
 -(NSNumber *) userId {
-    NSLog(@"getter userId was called");
     @synchronized (self) {
         return [[_userId retain] autorelease];
     }
 }
 
 -(void) setUserId:(NSNumber *) userId {
-    NSLog(@"setter userId was called");
-    _userId = userId;
+    if (_userId != userId) {
+        NSNumber *oldValue = _userId;
+        _userId = [userId retain];
+        [oldValue release];
+    }
 }
 
 
@@ -119,7 +121,7 @@
 
 -(BOOL) contactUser {
     NSLog(@"getter contactUser was called");
-    return _contactUser; //??
+    return _contactUser;
 }
 
 -(void) setContactUser:(BOOL) contactUser {
@@ -160,6 +162,33 @@
 /*-(void) description: (User *) user {
  NSLog[@" User ID: %d \n Name: %@ \n Lastname: %@ \n Birthday: %@ \n Folowers: %@ \n Folowing: %@ \n City: %@ \n Country: %@", user.userId, user.firstName, user.lastName, user.folowers, user.folowing, user.city, user.country];
  }*/
+
+
+# pragma mark - PersonBirthday protocol
+
+-(BOOL) isTodayBirthDate {
+    return ([_birthDate timeIntervalSinceNow] < 0 && [_birthDate timeIntervalSinceNow] > -60*60*24);
+}
+
+-(void) setBirthDateFromString: (NSString *) dateInString {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter new] autorelease];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:+3]];
+    [dateFormatter setDateFormat:@"dd/MM/yyyy"];
+    NSDate *dateFromStr = [dateFormatter dateFromString:dateInString];
+    if (![dateFromStr isEqualToDate:_birthDate]) {
+        [_birthDate release];
+        _birthDate = [dateFromStr copy];
+    }
+}
+
+
+-(void) happyBirhday {
+    if ([self isTodayBirthDate]) {
+        NSLog(@"Happy birthday, %@ %@", _firstName, _lastName);
+    }
+}
+
+
 
 -(void) dealloc {
     NSLog(@"dealloc %@", self);

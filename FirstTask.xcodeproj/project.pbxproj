@@ -38,6 +38,7 @@
 		84C9EB7C1EA9DBAE005452B0 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		84C9EB811EA9E456005452B0 /* ManualViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualViewController.h; sourceTree = "<group>"; };
 		84C9EB821EA9E456005452B0 /* ManualViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManualViewController.m; sourceTree = "<group>"; };
+		84D4BC5C1EAF7649000E913A /* PersonBirthday.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonBirthday.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +84,7 @@
 				849060C71EAE35AE0023B08B /* User+Address.m */,
 				849060C31EAE33F80023B08B /* Friend.h */,
 				849060C41EAE33F80023B08B /* Friend.m */,
+				84D4BC5C1EAF7649000E913A /* PersonBirthday.h */,
 				84C9EB7A1EA9DB58005452B0 /* other files */,
 				84C9EB631EA9DA8D005452B0 /* Supporting Files */,
 			);
