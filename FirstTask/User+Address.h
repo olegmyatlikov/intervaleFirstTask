@@ -10,6 +10,6 @@
 
 @interface User (Address)
 
--(void) compositeAddress;
+-(NSString *) compositeAddress;
 
 @end

@@ -15,8 +15,8 @@
 @property (nonatomic, retain) NSMutableString* firstName;
 @property (nonatomic, copy) NSMutableString* lastName;
 @property (nonatomic, retain) NSDate* birthDate;
-@property (atomic, copy) NSArray* folowers;
-@property (nonatomic, copy) NSArray* folowing;
+@property (atomic, copy) NSArray* followers;
+@property (nonatomic, copy) NSArray* following;
 @property (nonatomic, retain) NSDictionary* address;
 @property (nonatomic, copy, readonly) NSString* city;
 @property (nonatomic, copy, readonly) NSString* country;
@@ -29,29 +29,28 @@
             lastName: (NSMutableString*) lastName
             birthDay: (NSDate*) birthDay;
 
+// Кастомные конструкторы
 -(id) initUserOnlyWithID: (NSNumber*) userId;
 -(id) initUserWithName: (NSMutableString*) name lastName: (NSMutableString*) lastName;
+
 
 // public methods
 
 -(void) printFullName;
 
--(void) addFolower: (id) user;
+-(void) addFollower: (id) user;
 
--(void) removeFolower: (id) user;
+-(void) removeFollower: (User *) user;
 
--(void) addFolowing: (id) user;
+-(void) addFollowing: (User *) user;
 
--(void) removeFolowing: (id) user;
+-(void) removeFollowing: (User *) user;
 
--(BOOL) isFollowerPerson: (id) user;
+-(BOOL) isFollowerPerson: (User *) user;
 
--(BOOL) isFollowingPerson: (id) user;
+-(BOOL) isFollowingPerson: (User *) user;
 
-
--(BOOL) isTodayBirthDate;
--(void) happyBirhday;
--(void) setBirthDateFromString: (NSString *) dateInString;
+-(NSString *) description;
 
 
 @end

@@ -10,6 +10,10 @@
 
 @interface User (ForPersonBirthdayProtocol)
 
+-(BOOL) isTodayBirthDate;
+-(void) setBirthDateFromString: (NSString *) dateInString;
+-(void) happyBirhday;
+
 -(NSDateFormatter *) dateFormatter;
 -(NSString *) dateFormatToDDMM: (NSDate *) date;
 -(NSDate *) stringToDate: (NSString *) dateInString;

@@ -19,20 +19,22 @@
 @synthesize firstName = _firstName;
 @synthesize lastName = _lastName;
 @synthesize birthDate = _birthDate;
-@synthesize folowers = _followers;
-@synthesize folowing = _following;
+@synthesize followers = _followers;
+@synthesize following = _following;
 @synthesize address = _address;
 @synthesize city = _city;
 @synthesize country = _country;
 @synthesize contactUser = _contactUser;
 
 
+#pragma mark - Initializers
+
 // Инициализаторы
 
 -(id) initUserWithID: (NSNumber*) userId
-           firstName: (NSMutableString*) name
-            lastName: (NSMutableString*) lastName
-            birthDay: (NSDate*) birthDay
+    firstName: (NSMutableString*) name
+    lastName: (NSMutableString*) lastName
+    birthDay: (NSDate*) birthDay
 {
     self = [super init];
     if (self) {
@@ -54,6 +56,9 @@
     return self;
 }
 
+
+
+#pragma mark - getters & setters
 
 // get&set userId (atomic, retain)
 
@@ -89,7 +94,6 @@
 // get&set lastName (nonatomic, copy)
 
 -(NSString *) lastName {
-    NSLog(@"getter lastName was called");
     return _lastName;
 }
 
@@ -102,25 +106,23 @@
 }
 
 
-// get&set folowers (atomic, copy)
+// get&set followers (atomic, copy)
 
 -(NSArray *) followers {
-    NSLog(@"getter folowers was called");
         return _followers;
 }
 
--(void) folowers:(NSArray *) followers {
+-(void) setFollowers:(NSArray *) followers {
     if (_followers != followers) {
         [_followers release];
-        _followers = [followers copy];
+        _followers = [followers mutableCopy];
     }
 }
 
 
-// get&set folowers (nonatomic, assign)
+// get&set contactUser (nonatomic, assign)
 
 -(BOOL) contactUser {
-    NSLog(@"getter contactUser was called");
     return _contactUser;
 }
 
@@ -129,33 +131,52 @@
 }
 
 
-// methods
+// gette for city
+
+-(NSString *) city {
+    return [_address objectForKey:@"city"];
+}
+
+// gette for country
+
+-(NSString *) country {
+    return [_address objectForKey:@"country"];
+}
+
+
+#pragma mark - methods
 
 -(void) printFullName {
     NSLog(@"%@ %@", self.firstName, self.lastName);
 }
 
--(void) addFolower: (id) user {
-    [_followers addObject: user];
+-(void) addFollower: (id) user {
+    //_followers = [_followers mutableCopy];
+    //NSMutableArray *array = [self followers];
+    //[array addObject:user];
+    //NSLog(@"%@", array);
+    [_followers addObject:user];
+    
 }
 
--(void) removeFolower: (id) user {
+-(void) removeFollower: (User *) user {
     [_followers removeObject: user];
 }
 
--(void) addFolowing: (id) user {
+-(void) addFollowing: (User *) user {
     [_following addObject: user];
+    
 }
 
--(void) removeFolowing: (id) user {
+-(void) removeFollowing: (User *) user {
     [_following removeObject: user];
 }
 
--(BOOL) isFollowerPerson: (id) user {
+-(BOOL) isFollowerPerson: (User *) user {
     return [_followers containsObject: user];
 }
 
--(BOOL) isFollowingPerson: (id) user {
+-(BOOL) isFollowingPerson: (User *) user {
     return [_following containsObject: user];
 }
 
@@ -163,7 +184,13 @@
  NSLog[@" User ID: %d \n Name: %@ \n Lastname: %@ \n Birthday: %@ \n Folowers: %@ \n Folowing: %@ \n City: %@ \n Country: %@", user.userId, user.firstName, user.lastName, user.folowers, user.folowing, user.city, user.country];
  }*/
 
+-(NSString *) description {
+    //NSString *description;
+    
+    return @"";
+}
 
+#pragma mark - dealloc
 
 -(void) dealloc {
     NSLog(@"dealloc %@", self);

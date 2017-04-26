@@ -17,14 +17,35 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    
+    
+    
     
     User* user1 = [[User alloc] initUserWithName:@"Oleg" lastName:@"Myatlikov"];
-    [user1 setBirthDateFromString:@"27/04/1989"];
-    [user1 happyBirhday];
+    User* user2 = [[User alloc] initUserWithName:@"Oleg2" lastName:@"Myatlikov2"];
+    User* user3 = [[User alloc] initUserWithName:@"Oleg3" lastName:@"Myatlikov3"];
+    User* user4 = [[User alloc] init];
     
+    [user1 setUserId: @1];
+    [user1 setBirthDateFromString:@"26/04/1989"];
+    [user1 setAddress:@{@"city" : @"Gomel", @"country" : @"Belarus"}];
     
-    //[user1 release];
+    NSLog(@"%@", [user1 userId]);
+    NSLog(@"%@", [user1 firstName]);
+    NSLog(@"%@", [user1 lastName]);
+    NSLog(@"%@", [user1 birthDate]);
+    NSLog(@"%@", [user1 country]);
+    NSLog(@"%@", [user1 city]);
+    NSLog(@"%@", [user1 compositeAddress]);
+
+    
+
+    //[user4 setFollowers: @[@"OLEG"]];
+    [user4 addFollower:user3];
+    [user4 addFollower:user2];
+    NSLog(@"%@", [user4 followers]);
+
     return YES;
 }
 
