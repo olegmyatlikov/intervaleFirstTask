@@ -27,6 +27,7 @@
 @synthesize contactUser = _contactUser;
 
 
+
 #pragma mark - Initializers
 
 // Инициализаторы
@@ -34,25 +35,23 @@
 -(id) initUserWithID: (NSNumber*) userId
     firstName: (NSMutableString*) name
     lastName: (NSMutableString*) lastName
-    birthDay: (NSDate*) birthDay
 {
     self = [super init];
     if (self) {
         [self setUserId:userId];
         [self setFirstName:name];
         [self setLastName:lastName];
-        [self setBirthDate:birthDay];
     }
     return self;
 }
 
 -(id) initUserOnlyWithID: (NSNumber*) userId {
-    self = [self initUserWithID:userId firstName:nil lastName:nil birthDay:nil];
+    self = [self initUserWithID:userId firstName:nil lastName:nil];
     return self;
 }
 
 -(id) initUserWithName: (NSMutableString*) name lastName: (NSMutableString*) lastName  {
-    self = [self initUserWithID:nil firstName:name lastName:lastName birthDay:nil];
+    self = [self initUserWithID:nil firstName:name lastName:lastName];
     return self;
 }
 
@@ -98,7 +97,6 @@
 }
 
 -(void) setLastName:(NSString *) lastName {
-    NSLog(@"setter lastName was called");
     if (_lastName != lastName) {
         [_lastName release];
         _lastName = [lastName copy];
@@ -144,19 +142,21 @@
 }
 
 
+
 #pragma mark - methods
 
 -(void) printFullName {
     NSLog(@"%@ %@", self.firstName, self.lastName);
 }
 
--(void) addFollower: (id) user {
-    //_followers = [_followers mutableCopy];
-    //NSMutableArray *array = [self followers];
-    //[array addObject:user];
-    //NSLog(@"%@", array);
-    [_followers addObject:user];
-    
+-(void) addFollower: (User *) user { // ??? что-то не придумал, как правильно сделать... захардкодил
+    if (![self isFollowerPerson:user]) {
+        NSMutableArray* array = [[NSMutableArray alloc] init];
+        [array setArray:_followers];
+        [array addObject:user];
+        [self setFollowers:array];
+        [array release];
+    }
 }
 
 -(void) removeFollower: (User *) user {
@@ -164,8 +164,13 @@
 }
 
 -(void) addFollowing: (User *) user {
-    [_following addObject: user];
-    
+    if (![self isFollowingPerson:user]) {
+        NSMutableArray* array = [[NSMutableArray alloc] init];
+        [array setArray:_following];
+        [array addObject:user];
+        [self setFollowers:array];
+        [array release];
+    }
 }
 
 -(void) removeFollowing: (User *) user {
@@ -173,22 +178,18 @@
 }
 
 -(BOOL) isFollowerPerson: (User *) user {
-    return [_followers containsObject: user];
+    return [[self followers] containsObject: user];
 }
 
 -(BOOL) isFollowingPerson: (User *) user {
-    return [_following containsObject: user];
+    return [[self following] containsObject: user];
 }
-
-/*-(void) description: (User *) user {
- NSLog[@" User ID: %d \n Name: %@ \n Lastname: %@ \n Birthday: %@ \n Folowers: %@ \n Folowing: %@ \n City: %@ \n Country: %@", user.userId, user.firstName, user.lastName, user.folowers, user.folowing, user.city, user.country];
- }*/
 
 -(NSString *) description {
-    //NSString *description;
-    
-    return @"";
+    return [NSString stringWithFormat:@"UserID - %@ Name - %@ Last name - %@  Birthday - %@ Adress - %@ Followers - %@ Following - %@", _userId, _firstName, _lastName, _birthDate, [self compositeAddress],  _followers, _following];
 }
+
+
 
 #pragma mark - dealloc
 

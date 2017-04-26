@@ -27,7 +27,10 @@
 -(id) initUserWithID: (NSNumber*) userId
            firstName: (NSMutableString*) name
             lastName: (NSMutableString*) lastName
-            birthDay: (NSDate*) birthDay;
+            birthDay: (NSDate*) birthDay
+            address: (NSDictionary *) address
+            followers: (NSArray *) followers
+            following: (NSArray *) following;
 
 // Кастомные конструкторы
 -(id) initUserOnlyWithID: (NSNumber*) userId;
@@ -38,7 +41,7 @@
 
 -(void) printFullName;
 
--(void) addFollower: (id) user;
+-(void) addFollower: (User *) user;
 
 -(void) removeFollower: (User *) user;
 

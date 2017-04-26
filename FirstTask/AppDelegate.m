@@ -18,33 +18,30 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    
-    
-    
-    
-    User* user1 = [[User alloc] initUserWithName:@"Oleg" lastName:@"Myatlikov"];
-    User* user2 = [[User alloc] initUserWithName:@"Oleg2" lastName:@"Myatlikov2"];
-    User* user3 = [[User alloc] initUserWithName:@"Oleg3" lastName:@"Myatlikov3"];
-    User* user4 = [[User alloc] init];
+    User* user1 = [[User alloc] initUserWithID:@1 firstName:@"Oleg" lastName:@"Myatlikov"];
+    User* user2 = [[User alloc] initUserWithID:@2 firstName:@"Oleg2" lastName:@"Myatlikov2"];
+    User* user3 = [[User alloc] initUserWithID:@4 firstName:@"Oleg3" lastName:@"Myatlikov3"];
+    User* user4 = [[User alloc] initUserWithID:@4 firstName:@"Oleg4" lastName:@"Myatlikov4"];
+    User* user5 = [[User alloc] initUserWithID:@5 firstName:@"Oleg5" lastName:@"Myatlikov5"];
+    User* user6 = [[User alloc] initUserWithID:@6 firstName:@"Oleg6" lastName:@"Myatlikov6"];
+    User* user7 = [[User alloc] initUserWithID:@7 firstName:@"Oleg7" lastName:@"Myatlikov7"];
+    User* user8 = [[User alloc] initUserWithID:@8 firstName:@"Oleg8" lastName:@"Myatlikov8"];
+    User* user9 = [[User alloc] initUserWithID:@9 firstName:@"Oleg9" lastName:@"Myatlikov9"];
+    User* user10 = [[User alloc] initUserWithID:@10 firstName:@"Oleg10" lastName:@"Myatlikov10"];
     
     [user1 setUserId: @1];
     [user1 setBirthDateFromString:@"26/04/1989"];
     [user1 setAddress:@{@"city" : @"Gomel", @"country" : @"Belarus"}];
-    
-    NSLog(@"%@", [user1 userId]);
-    NSLog(@"%@", [user1 firstName]);
-    NSLog(@"%@", [user1 lastName]);
-    NSLog(@"%@", [user1 birthDate]);
-    NSLog(@"%@", [user1 country]);
-    NSLog(@"%@", [user1 city]);
-    NSLog(@"%@", [user1 compositeAddress]);
-
-    
+    [user1 setFollowers:@[user2, user3, user4]];
+    [user1 setFollowing:@[user2, user3, user4]];
 
     //[user4 setFollowers: @[@"OLEG"]];
-    [user4 addFollower:user3];
-    [user4 addFollower:user2];
-    NSLog(@"%@", [user4 followers]);
+    [user1 addFollower:user3];
+    [user1 addFollower:user2];
+    [user1 addFollower:user2];
+    NSLog(@"%d", [user1 isFollowerPerson:user2]);
+    NSLog(@"foloing %@", [user1 followers]);
+    //NSLog(@"%@", [user1 description]);
 
     return YES;
 }
