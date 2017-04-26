@@ -48,7 +48,10 @@
 
 -(BOOL) isFollowingPerson: (id) user;
 
-//-(BOOL) isTodayBirthDate;
+
+-(BOOL) isTodayBirthDate;
+-(void) happyBirhday;
+-(void) setBirthDateFromString: (NSString *) dateInString;
 
 
 @end

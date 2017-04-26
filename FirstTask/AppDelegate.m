@@ -20,9 +20,7 @@
     // Override point for customization after application launch.
     
     User* user1 = [[User alloc] initUserWithName:@"Oleg" lastName:@"Myatlikov"];
-
-    [user1 setBirthDateFromString: @"25/04/2017"];
-    NSLog(@"%@", user1.birthDate);
+    [user1 setBirthDateFromString:@"27/04/1989"];
     [user1 happyBirhday];
     
     

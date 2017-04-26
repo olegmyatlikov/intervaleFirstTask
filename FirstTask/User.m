@@ -164,31 +164,6 @@
  }*/
 
 
-# pragma mark - PersonBirthday protocol
-
--(BOOL) isTodayBirthDate {
-    return ([_birthDate timeIntervalSinceNow] < 0 && [_birthDate timeIntervalSinceNow] > -60*60*24);
-}
-
--(void) setBirthDateFromString: (NSString *) dateInString {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter new] autorelease];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:+3]];
-    [dateFormatter setDateFormat:@"dd/MM/yyyy"];
-    NSDate *dateFromStr = [dateFormatter dateFromString:dateInString];
-    if (![dateFromStr isEqualToDate:_birthDate]) {
-        [_birthDate release];
-        _birthDate = [dateFromStr copy];
-    }
-}
-
-
--(void) happyBirhday {
-    if ([self isTodayBirthDate]) {
-        NSLog(@"Happy birthday, %@ %@", _firstName, _lastName);
-    }
-}
-
-
 
 -(void) dealloc {
     NSLog(@"dealloc %@", self);

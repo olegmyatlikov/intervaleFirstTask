@@ -17,6 +17,7 @@
 		84C9EB731EA9DA8D005452B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C9EB711EA9DA8D005452B0 /* LaunchScreen.storyboard */; };
 		84C9EB7D1EA9DBAE005452B0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C9EB7C1EA9DBAE005452B0 /* User.m */; };
 		84C9EB831EA9E456005452B0 /* ManualViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C9EB821EA9E456005452B0 /* ManualViewController.m */; };
+		84D4BC621EB098C4000E913A /* User+ForPersonBirthdayProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4BC611EB098C4000E913A /* User+ForPersonBirthdayProtocol.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,8 @@
 		84C9EB811EA9E456005452B0 /* ManualViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualViewController.h; sourceTree = "<group>"; };
 		84C9EB821EA9E456005452B0 /* ManualViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManualViewController.m; sourceTree = "<group>"; };
 		84D4BC5C1EAF7649000E913A /* PersonBirthday.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonBirthday.h; sourceTree = "<group>"; };
+		84D4BC601EB098C4000E913A /* User+ForPersonBirthdayProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+ForPersonBirthdayProtocol.h"; sourceTree = "<group>"; };
+		84D4BC611EB098C4000E913A /* User+ForPersonBirthdayProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+ForPersonBirthdayProtocol.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +83,8 @@
 				84C9EB6C1EA9DA8D005452B0 /* Main.storyboard */,
 				84C9EB7B1EA9DBAE005452B0 /* User.h */,
 				84C9EB7C1EA9DBAE005452B0 /* User.m */,
+				84D4BC601EB098C4000E913A /* User+ForPersonBirthdayProtocol.h */,
+				84D4BC611EB098C4000E913A /* User+ForPersonBirthdayProtocol.m */,
 				849060C61EAE35AE0023B08B /* User+Address.h */,
 				849060C71EAE35AE0023B08B /* User+Address.m */,
 				849060C31EAE33F80023B08B /* Friend.h */,
@@ -185,6 +190,7 @@
 				84C9EB681EA9DA8D005452B0 /* AppDelegate.m in Sources */,
 				849060C51EAE33F80023B08B /* Friend.m in Sources */,
 				84C9EB831EA9E456005452B0 /* ManualViewController.m in Sources */,
+				84D4BC621EB098C4000E913A /* User+ForPersonBirthdayProtocol.m in Sources */,
 				84C9EB651EA9DA8D005452B0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
