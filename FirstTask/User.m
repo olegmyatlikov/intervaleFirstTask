@@ -186,7 +186,7 @@
 }
 
 -(NSString *) description {
-    return [NSString stringWithFormat:@"UserID - %@ Name - %@ Last name - %@  Birthday - %@ Adress - %@ Followers - %@ Following - %@", _userId, _firstName, _lastName, _birthDate, [self compositeAddress],  _followers, _following];
+    return [NSString stringWithFormat:@"\nUserID - %@ \nName - %@ \nLast name - %@  \nBirthday - %@ \nAdress - %@ \nFollowers - %lu \nFollowing - %lu", _userId, _firstName, _lastName, _birthDate, [self compositeAddress], _followers.count, (unsigned long)_following.count];
 }
 
 

@@ -26,11 +26,7 @@
 // Основной инициализатор
 -(id) initUserWithID: (NSNumber*) userId
            firstName: (NSMutableString*) name
-            lastName: (NSMutableString*) lastName
-            birthDay: (NSDate*) birthDay
-            address: (NSDictionary *) address
-            followers: (NSArray *) followers
-            following: (NSArray *) following;
+            lastName: (NSMutableString*) lastName;
 
 // Кастомные конструкторы
 -(id) initUserOnlyWithID: (NSNumber*) userId;
@@ -54,6 +50,7 @@
 -(BOOL) isFollowingPerson: (User *) user;
 
 -(NSString *) description;
+
 
 
 @end
