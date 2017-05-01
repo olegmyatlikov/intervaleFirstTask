@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol PersonBirthday <NSObject>
+@protocol PersonBirthday <NSObject> 
 
 @required
 -(BOOL) isTodayBirthDate;

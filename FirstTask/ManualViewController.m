@@ -75,9 +75,9 @@
 }
 
 -(void) dealloc {
-    [_firstNameTextField release];
-    [_lastNameTextField release];
-    [_sayHelloLabel release];
+//    [_firstNameTextField release];
+//    [_lastNameTextField release];
+//    [_sayHelloLabel release];
     
     [super dealloc];
 }

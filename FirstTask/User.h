@@ -49,8 +49,6 @@
 
 -(BOOL) isFollowingPerson: (User *) user;
 
--(NSString *) description;
-
 
 
 @end

@@ -15,16 +15,16 @@
     NSString *result;
     
     
-    if ([[self address] valueForKey:@"city"] != nil && [[self address] valueForKey:@"country"] != nil) { // если есть и страна и город
-        result = [NSString stringWithFormat:@"%@, %@", [[self address] valueForKey:@"country"], [[self address] valueForKey:@"city"]];
+    if ([self city] != nil && [self country] != nil) {
+        result = [NSString stringWithFormat:@"%@, %@", [self country], [self city]];
         
-    } else if ([[self address] valueForKey:@"country"] != nil) { // если есть только страна
-        result = [[self address] valueForKey:@"country"];
+    } else if ([[self address] valueForKey:@"country"] != nil) {
+        result = [self country];
         
-    } else if ([[self address] valueForKey:@"city"] != nil) { // если есть только город
-        result = [[self address] valueForKey:@"city"];
+    } else if ([[self address] valueForKey:@"city"] != nil) {
+        result = [self city];
         
-    } else { // нету ни страны, ни города
+    } else { 
         result = @"unknown";
     }
     

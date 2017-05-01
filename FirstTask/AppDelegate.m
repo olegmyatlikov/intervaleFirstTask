@@ -36,11 +36,10 @@
         [user1 setFollowers:@[user2, user3, user4]];
         [user1 setFollowing:@[user2, user3, user4, user5, user6, user7, user8, user9, user10]];
         
-        //[user4 setFollowers: @[@"OLEG"]];
-        [user1 addFollower:user3];
-        [user1 addFollower:user2];
-        [user1 addFollower:user2];
         NSLog(@"\n%@", [user1 description]);
+        
+        
+        NSLog(@"%@", [user1 compositeAddress]);
     }
     
    

@@ -8,6 +8,7 @@
 
 #import "User.h"
 
+
 @interface User() {
     NSMutableArray *_followers;
     NSMutableArray *_following;
@@ -41,6 +42,8 @@
         [self setUserId:userId];
         [self setFirstName:name];
         [self setLastName:lastName];
+        [self setFollowers:[[NSArray alloc] init]];
+        [self setFollowing:[[NSArray alloc] init]];
     }
     return self;
 }
@@ -149,13 +152,9 @@
     NSLog(@"%@ %@", self.firstName, self.lastName);
 }
 
--(void) addFollower: (User *) user { // ??? что-то не придумал, как правильно сделать... захардкодил
+-(void) addFollower: (User *) user {
     if (![self isFollowerPerson:user]) {
-        NSMutableArray* array = [[NSMutableArray alloc] init];
-        [array setArray:_followers];
-        [array addObject:user];
-        [self setFollowers:array];
-        [array release];
+        [_followers addObject:user];
     }
 }
 
@@ -165,11 +164,7 @@
 
 -(void) addFollowing: (User *) user {
     if (![self isFollowingPerson:user]) {
-        NSMutableArray* array = [[NSMutableArray alloc] init];
-        [array setArray:_following];
-        [array addObject:user];
-        [self setFollowers:array];
-        [array release];
+        [_following addObject: user];
     }
 }
 
@@ -186,7 +181,7 @@
 }
 
 -(NSString *) description {
-    return [NSString stringWithFormat:@"\nUserID - %@ \nName - %@ \nLast name - %@  \nBirthday - %@ \nAdress - %@ \nFollowers - %lu \nFollowing - %lu", _userId, _firstName, _lastName, _birthDate, [self compositeAddress], _followers.count, (unsigned long)_following.count];
+    return [NSString stringWithFormat:@"\nUserID - %@ \nName - %@ \nLast name - %@  \nBirthday - %@ \nAdress - %@ \nFollowers - %d \nFollowing - %d", self.userId, self.firstName, self.lastName, self.birthDate, [self compositeAddress], self.followers.count, self.following.count];
 }
 
 
@@ -202,9 +197,9 @@
     [_followers release];
     [_following release];
     [_address release];
-    [_city release];
-    [_country release];
-    //[_contactUser release];
+//    [_city release];
+//    [_country release];
+//    [_contactUser release];
     
     [super dealloc];
 }

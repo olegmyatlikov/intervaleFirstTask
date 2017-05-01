@@ -8,7 +8,7 @@
 
 #import "User+ForPersonBirthdayProtocol.h"
 
-@implementation User (ForPersonBirthdayProtocol)
+@implementation User (ForPersonBirthdayProtocol) 
 
 -(BOOL) isTodayBirthDate {
     return ([[self dateFormatToDDMM:[self birthDate]] isEqualToString:[self dateFormatToDDMM: [NSDate date]]]);

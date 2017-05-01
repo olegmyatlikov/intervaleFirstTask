@@ -8,7 +8,7 @@
 
 #import "User.h"
 
-@interface User (ForPersonBirthdayProtocol)
+@interface User (ForPersonBirthdayProtocol) <PersonBirthday>
 
 -(BOOL) isTodayBirthDate;
 -(void) setBirthDateFromString: (NSString *) dateInString;

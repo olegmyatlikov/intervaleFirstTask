@@ -55,6 +55,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7CEFB3061EB6350A0031B6E4 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				84C9EB7B1EA9DBAE005452B0 /* User.h */,
+				84C9EB7C1EA9DBAE005452B0 /* User.m */,
+				84D4BC601EB098C4000E913A /* User+ForPersonBirthdayProtocol.h */,
+				84D4BC611EB098C4000E913A /* User+ForPersonBirthdayProtocol.m */,
+				849060C61EAE35AE0023B08B /* User+Address.h */,
+				849060C71EAE35AE0023B08B /* User+Address.m */,
+				849060C31EAE33F80023B08B /* Friend.h */,
+				849060C41EAE33F80023B08B /* Friend.m */,
+				84D4BC5C1EAF7649000E913A /* PersonBirthday.h */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
 		84C9EB571EA9DA8D005452B0 = {
 			isa = PBXGroup;
 			children = (
@@ -81,15 +97,7 @@
 				84C9EB691EA9DA8D005452B0 /* ViewController.h */,
 				84C9EB6A1EA9DA8D005452B0 /* ViewController.m */,
 				84C9EB6C1EA9DA8D005452B0 /* Main.storyboard */,
-				84C9EB7B1EA9DBAE005452B0 /* User.h */,
-				84C9EB7C1EA9DBAE005452B0 /* User.m */,
-				84D4BC601EB098C4000E913A /* User+ForPersonBirthdayProtocol.h */,
-				84D4BC611EB098C4000E913A /* User+ForPersonBirthdayProtocol.m */,
-				849060C61EAE35AE0023B08B /* User+Address.h */,
-				849060C71EAE35AE0023B08B /* User+Address.m */,
-				849060C31EAE33F80023B08B /* Friend.h */,
-				849060C41EAE33F80023B08B /* Friend.m */,
-				84D4BC5C1EAF7649000E913A /* PersonBirthday.h */,
+				7CEFB3061EB6350A0031B6E4 /* User */,
 				84C9EB7A1EA9DB58005452B0 /* other files */,
 				84C9EB631EA9DA8D005452B0 /* Supporting Files */,
 			);
