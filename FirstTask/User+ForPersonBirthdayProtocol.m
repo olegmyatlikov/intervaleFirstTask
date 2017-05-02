@@ -17,8 +17,7 @@
 -(void) setBirthDateFromString: (NSString *) dateInString {
     NSDate *dateFromStr = [self stringToDate:dateInString];
     if (![dateFromStr isEqualToDate: [self birthDate]]) {
-        [[self birthDate] release];
-        [self setBirthDate:[dateFromStr copy]];
+        [self setBirthDate:[[dateFromStr copy] autorelease]];
     }
 }
 

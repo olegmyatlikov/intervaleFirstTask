@@ -8,13 +8,6 @@
 
 #import "User.h"
 
-
-@interface User() {
-    NSMutableArray *_followers;
-    NSMutableArray *_following;
-}
-@end
-
 @implementation User
 @synthesize userId = _userId;
 @synthesize firstName = _firstName;
@@ -42,8 +35,8 @@
         [self setUserId:userId];
         [self setFirstName:name];
         [self setLastName:lastName];
-        [self setFollowers:[[NSArray alloc] init]];
-        [self setFollowing:[[NSArray alloc] init]];
+        [self setFollowers:[[[NSArray alloc] init] autorelease]];
+        [self setFollowing:[[[NSArray alloc] init] autorelease]];
     }
     return self;
 }
@@ -107,23 +100,9 @@
 }
 
 
-// get&set followers (atomic, copy)
-
--(NSArray *) followers {
-        return _followers;
-}
-
--(void) setFollowers:(NSArray *) followers {
-    if (_followers != followers) {
-        [_followers release];
-        _followers = [followers mutableCopy];
-    }
-}
-
-
 // get&set contactUser (nonatomic, assign)
 
--(BOOL) contactUser {
+-(BOOL) isContactUser {
     return _contactUser;
 }
 
@@ -132,13 +111,13 @@
 }
 
 
-// gette for city
+// getter for city
 
 -(NSString *) city {
     return [_address objectForKey:@"city"];
 }
 
-// gette for country
+// getter for country
 
 -(NSString *) country {
     return [_address objectForKey:@"country"];
@@ -152,33 +131,6 @@
     NSLog(@"%@ %@", self.firstName, self.lastName);
 }
 
--(void) addFollower: (User *) user {
-    if (![self isFollowerPerson:user]) {
-        [_followers addObject:user];
-    }
-}
-
--(void) removeFollower: (User *) user {
-    [_followers removeObject: user];
-}
-
--(void) addFollowing: (User *) user {
-    if (![self isFollowingPerson:user]) {
-        [_following addObject: user];
-    }
-}
-
--(void) removeFollowing: (User *) user {
-    [_following removeObject: user];
-}
-
--(BOOL) isFollowerPerson: (User *) user {
-    return [[self followers] containsObject: user];
-}
-
--(BOOL) isFollowingPerson: (User *) user {
-    return [[self following] containsObject: user];
-}
 
 -(NSString *) description {
     return [NSString stringWithFormat:@"\nUserID - %@ \nName - %@ \nLast name - %@  \nBirthday - %@ \nAdress - %@ \nFollowers - %d \nFollowing - %d", self.userId, self.firstName, self.lastName, self.birthDate, [self compositeAddress], self.followers.count, self.following.count];
@@ -189,7 +141,6 @@
 #pragma mark - dealloc
 
 -(void) dealloc {
-    NSLog(@"dealloc %@", self);
     [_userId release];
     [_firstName release];
     [_lastName release];
@@ -197,9 +148,9 @@
     [_followers release];
     [_following release];
     [_address release];
-//    [_city release];
-//    [_country release];
-//    [_contactUser release];
+    [_city release];
+    [_country release];
+    //_contactUser = nil;
     
     [super dealloc];
 }

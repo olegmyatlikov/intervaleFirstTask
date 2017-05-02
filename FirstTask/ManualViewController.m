@@ -49,7 +49,7 @@
     [self.view addSubview:_lastNameTextField];
 
     // say hello BUTTOM
-    UIButton *buttomSayHello = [[UIButton alloc] initWithFrame:CGRectMake(40, 260, buttonWidth, 30)];
+    UIButton *buttomSayHello = [[[UIButton alloc] initWithFrame:CGRectMake(40, 260, buttonWidth, 30)] autorelease];
     [buttomSayHello setTintColor:[UIColor whiteColor]];
     [buttomSayHello.titleLabel setFont:[UIFont systemFontOfSize:15]];
     [buttomSayHello setBackgroundColor: [UIColor colorWithRed:0.0f green:0.48f blue:1.0f alpha:1.0f]];
@@ -60,12 +60,11 @@
     [self.view addSubview:buttomSayHello];
     
     // output label "say hello"
-    _sayHelloLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 320, self.view.bounds.size.width, 30)];
+    _sayHelloLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 320, self.view.bounds.size.width, 30)]autorelease];
     [_sayHelloLabel setTextColor:[UIColor blackColor]];
     [_sayHelloLabel setFont:[UIFont systemFontOfSize:20]];
     [_sayHelloLabel setTextAlignment:NSTextAlignmentCenter];
     [self.view addSubview:_sayHelloLabel];
-    [_sayHelloLabel release];
     
 }
 

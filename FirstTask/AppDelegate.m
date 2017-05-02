@@ -36,11 +36,23 @@
         [user1 setFollowers:@[user2, user3, user4]];
         [user1 setFollowing:@[user2, user3, user4, user5, user6, user7, user8, user9, user10]];
         
+ 
         NSLog(@"\n%@", [user1 description]);
         
         
-        NSLog(@"%@", [user1 compositeAddress]);
+        [user1 release];
+        [user2 release];
+        [user3 release];
+        [user4 release];
+        [user5 release];
+        [user6 release];
+        [user7 release];
+        [user8 release];
+        [user9 release];
+        [user10 release];
+        
     }
+    
     
    
 

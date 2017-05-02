@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "PersonBirthday.h"
 
-@interface User : NSObject <PersonBirthday>
+@interface User : NSObject
 
 @property (atomic, retain) NSNumber* userId;
 @property (nonatomic, retain) NSMutableString* firstName;
@@ -20,7 +20,7 @@
 @property (nonatomic, retain) NSDictionary* address;
 @property (nonatomic, copy, readonly) NSString* city;
 @property (nonatomic, copy, readonly) NSString* country;
-@property (nonatomic, assign) BOOL contactUser;
+@property (nonatomic, assign, getter=isContactUser) BOOL contactUser;
 
 
 // Основной инициализатор
@@ -33,22 +33,8 @@
 -(id) initUserWithName: (NSMutableString*) name lastName: (NSMutableString*) lastName;
 
 
-// public methods
-
+// public method
 -(void) printFullName;
-
--(void) addFollower: (User *) user;
-
--(void) removeFollower: (User *) user;
-
--(void) addFollowing: (User *) user;
-
--(void) removeFollowing: (User *) user;
-
--(BOOL) isFollowerPerson: (User *) user;
-
--(BOOL) isFollowingPerson: (User *) user;
-
 
 
 @end
